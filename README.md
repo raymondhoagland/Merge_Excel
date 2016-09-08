@@ -5,8 +5,8 @@
 - If this fails, make sure you have Python and pip installed and available from the path.
 
 ### Modifying which files are merged
-
-    Within **listing.txt** add 1+ pairs of lines using these two formats
+Within **listing.txt** add 1+ pairs of lines using these two formats
+    
 - 1)
     ```
     FILE
