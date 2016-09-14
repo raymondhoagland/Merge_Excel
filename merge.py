@@ -30,6 +30,7 @@ def include_file(filepath, fileset):
 
     # if csv convert to xls and save as temp file
     if extension.lower() == "csv":
+        print filename_no_path
         output = "./tmpMERGE"+filename_no_path.split('.')[0]+".xls"
         print "Found csv: "+filepath
         print "Creating temporary file: "+output
@@ -106,10 +107,11 @@ def retrieve_filenames(input_filepath):
 
 # retrieve the week and company from the filename
 def split_filename(filename):
-    filename_no_path = re.sub(".*/", "", filename)
+    filename_no_tmp = re.sub("./tmpMERGE", "", filename)
+    filename_no_path = re.sub(".*/", "", filename_no_tmp)
     filename_no_ext = ''.join(filename_no_path.split('.')[:-1])
-    print "Adding {0} to output.".format(filename_no_path)
-    return tuple(filename_no_path.split(' '))
+    print "Adding {0} to output.".format(filename_no_ext)
+    return tuple(filename_no_ext.split(' '))
 
 # check which sheet to write merged data to
 def get_worksheet_index(src_workbook, key=output_sheet_name):
